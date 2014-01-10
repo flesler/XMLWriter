@@ -1,3 +1,6 @@
+1.0.2-dev
+- Adds escaping of CDATA elements
+
 1.0.1
 - Slightly optimized the size.
 - Added chaining

@@ -2,7 +2,7 @@
  * XMLWriter - XML generator for Javascript, based on .NET's XMLTextWriter.
  * Copyright (c) 2008-2014 Ariel Flesler - aflesler [a] gmail [d] com | http://flesler.blogspot.com
  * Licensed under BSD (https://raw2.github.com/flesler/XMLWriter/master/LICENSE)
- * @version 1.0.1
+ * @version 1.0.2-dev
  * @author Ariel Flesler
  * http://flesler.blogspot.com/2008/03/xmlwriter-for-javascript.html
  */
@@ -75,6 +75,8 @@ var proto = XMLWriter.prototype = {
 	},
 	//add a text node wrapped with CDATA
 	writeCDATA:function( text ){
+		// keep nested CDATA
+		text = text.replace(/>>]/g, "]]><![CDATA[>");
 		this.writeString( '<![CDATA[' + text + ']]>' );
 	},
 	//add a text node wrapped in a comment
