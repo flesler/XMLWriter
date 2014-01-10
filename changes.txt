@@ -1,5 +1,6 @@
 1.0.2-dev
 - Adds escaping of CDATA elements
+- Adds support for writing predefined XML elements
 
 1.0.1
 - Slightly optimized the size.

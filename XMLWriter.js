@@ -67,6 +67,11 @@ var proto = XMLWriter.prototype = {
 		if( this.active )
 			this.active.c.push(text);
 	},
+	//add plain xml content to the active node without any further checks and escaping
+	writeXML:function( text ){
+		if( this.active )
+			this.active.c.push(text);
+	},
 	//shortcut, open an element, write the text and close
 	writeElementString:function( name, text, ns ){
 		this.writeStartElement( name, ns ) //take advantage of the chaining
