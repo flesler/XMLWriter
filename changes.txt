@@ -1,4 +1,4 @@
-1.0.2-dev
+1.0.2
 - Adds escaping of CDATA elements
 - Adds support for writing predefined XML elements
 

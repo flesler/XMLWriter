@@ -2,7 +2,7 @@
  * XMLWriter - XML generator for Javascript, based on .NET's XMLTextWriter.
  * Copyright (c) 2008-2014 Ariel Flesler - aflesler [a] gmail [d] com | http://flesler.blogspot.com
  * Licensed under BSD (https://raw2.github.com/flesler/XMLWriter/master/LICENSE)
- * @version 1.0.2-dev
+ * @version 1.0.2
  * @author Ariel Flesler
  * http://flesler.blogspot.com/2008/03/xmlwriter-for-javascript.html
  */
