@@ -1,0 +1,4 @@
+XMLWriter
+=========
+
+XML generator for Javascript, based on .NET's XMLTextWriter.
