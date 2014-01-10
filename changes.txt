@@ -1,0 +1,6 @@
+1.0.1
+- Slightly optimized the size.
+- Added chaining
+
+1.0.0
+- First release

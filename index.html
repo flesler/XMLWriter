@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>XMLWriter</title>
+	<meta name="keywords" content="javascript, xml, writer, .NET, class, string, object, ariel, flesler" />
+	<meta name="description" content="Demo of XMLWriter. Made by Ariel Flesler." />
+	<meta name="robots" content="index,follow" />
+	<script type="text/javascript" src="XMLWriter.js"></script>
+	<style type="text/css">
+		body{
+			padding:5px;
+			font-family: Verdana, sans-serif;
+			background-color: #DDD;
+		}
+		ul,li,h3{
+			margin:0;
+			padding:0;	
+		}
+		
+		#links{
+			position:absolute;
+			right:5px;
+			border:1px solid #777;
+			top:5px;
+			padding:20px;
+		}
+			#links h3{
+				color:#933;
+				margin:0 0 5px 0;
+			}
+			#links ul{
+				padding: 8px 0 3px 20px;
+			}
+			#links li{
+				list-style-type:circle;
+			}
+			#links a{
+				color:#69C;
+			}
+		h1{
+			color:#5B739C;
+		}
+		h1 strong{
+			font-size:13px;
+			color:#777;
+		}
+		h2{
+			margin-top:20px;
+		}
+		#wrap-xml{
+			float:right;			
+		}
+		textarea{
+			font-size:12px;
+			height:300px;
+			width:500px;
+		}
+		#wrap-code{
+			float:left;			
+		}
+		pre{
+			background:white;
+			font-size:12px;
+			padding:5px;
+			width:450px;
+		}
+	</style>
+</head>
+<body>
+	<h1>XMLWriter for Javascript&nbsp;<strong>by Ariel Flesler</strong></h1>
+	
+	<div id="links">
+		<h3>Links</h3>
+		<ul>
+			<li><a target="_blank" href="http://flesler.blogspot.com/2008/03/xmlwriter-for-javascript.html">Documentation</a></li>
+			<li><a href="http://flesler-plugins.googlecode.com/files/XMLWriter-1.0.0.js">XMLWriter 1.0.0 Source</a></li>
+			<li><a href="http://flesler-plugins.googlecode.com/files/XMLWriter-1.0.0-min.js">XMLWriter 1.0.0 Minified</a></li>
+		</ul>
+	</div>
+	<div id="wrap-code">
+	<h2>JS Code</h2>
+	<pre>
+var xw = new XMLWriter('UTF-8');
+xw.formatting = 'indented';//add indentation and newlines
+xw.indentChar = ' ';//indent with spaces
+xw.indentation = 2;//add 2 spaces per level
+
+xw.writeStartDocument( );
+xw.writeDocType('"items.dtd"');
+xw.writeStartElement( 'items' );
+
+  xw.writeComment('button');
+  xw.writeStartElement('item');
+    xw.writeAttributeString( 'id', 'item-1');
+    xw.writeAttributeString( 'enabled', 'true' );
+    xw.writeStartElement( 'code');
+      xw.writeCDATA( '&lt;button&gt;Save&lt;/button&gt;' );
+    xw.writeEndElement();
+    xw.writeElementString('description', 'a save button');
+  xw.writeEndElement();
+  
+  xw.writeComment('image');
+  xw.writeStartElement('item');
+    xw.writeAttributeString( 'id', 'item-2');
+    xw.writeAttributeString( 'enabled', 'false' );
+    xw.writeStartElement( 'code');
+      xw.writeCDATA( '&lt;img src="photo.gif" alt="me" /&gt;' );
+    xw.writeEndElement();
+    xw.writeElementString('description', 'a pic of myself!');
+  xw.writeEndElement();
+  
+  xw.writeComment('link');
+  xw.writeStartElement('item');
+    xw.writeAttributeString( 'id', 'item-3');
+    xw.writeAttributeString( 'enabled', 'true' );
+    xw.writeStartElement( 'code');
+      xw.writeCDATA( '&lt;a href="http://google.com"&gt;Google&lt;/a&gt;' );
+    xw.writeEndElement();
+    xw.writeElementString('description', 'a link to Google');
+  xw.writeEndElement();
+  
+xw.writeEndElement();
+xw.writeEndDocument();
+</pre>
+</div>
+	<div id="wrap-xml">
+		<h2>Generated XML</h2>
+		<textarea id="parsed-xml"></textarea>
+	</div>
+	
+	<script type="text/javascript">
+		var xw = new XMLWriter('UTF-8');
+		xw.formatting = 'indented';//add indentation and newlines
+		xw.indentChar = ' ';//indent with spaces
+		xw.indentation = 2;//add 2 spaces per level
+		
+		xw.writeStartDocument( );
+		xw.writeDocType('"items.dtd"');
+		xw.writeStartElement( 'items' );
+			
+			xw.writeComment('button');
+			xw.writeStartElement('item');
+				xw.writeAttributeString( 'id', 'item-1');
+				xw.writeAttributeString( 'enabled', 'true' );
+				xw.writeStartElement( 'code');
+					xw.writeCDATA( '<button>Save</button>' );
+				xw.writeEndElement();
+				xw.writeElementString('description', 'a save button');
+			xw.writeEndElement();
+			
+			xw.writeComment('image');
+			xw.writeStartElement('item');
+				xw.writeAttributeString( 'id', 'item-2');
+				xw.writeAttributeString( 'enabled', 'false' );
+				xw.writeStartElement( 'code');
+					xw.writeCDATA( '<img src="photo.gif" alt="me" />' );
+				xw.writeEndElement();
+				xw.writeElementString('description', 'a pic of myself!');
+			xw.writeEndElement();
+			
+			xw.writeComment('link');
+			xw.writeStartElement('item');
+				xw.writeAttributeString( 'id', 'item-3');
+				xw.writeAttributeString( 'enabled', 'true' );
+				xw.writeStartElement( 'code');
+					xw.writeCDATA( '<a href="http://google.com">Google</a>' );
+				xw.writeEndElement();
+				xw.writeElementString('description', 'a link to Google');
+			xw.writeEndElement();
+			
+		xw.writeEndElement();
+		xw.writeEndDocument();
+		
+		var xml = xw.flush(); //generate the xml string
+		xw.close();//clean the writer
+		xw = undefined;//don't let visitors use it, it's closed
+		//set the xml
+		document.getElementById('parsed-xml').value = xml;
+		
+	</script>
+</body>
+</html>
