@@ -1,5 +1,5 @@
 {
-  "name": "XMLWriter",
+  "name": "xmlwriter",
   "version": "1.0.2",
   "description": "XML generator for Javascript, based on .NET's XMLTextWriter.",
   "main": "XMLWriter.js",
